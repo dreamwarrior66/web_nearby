@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Travel Explore</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <div class="top-links">
+    <a href="sign in.html"><h3>Sign up or Login</h3></a>
+    <a href="https://www.google.co.in/"><h3>🔎 Search</h3></a>
+  </div>
+
+  <h1 style="text-align: center;">Travel Explore</h1>
+
+  <div class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="index2.html">Explore</a>
+    <a href="index3.html">About us</a>
+    <hr>
+  </div>
+
+  <h1 style="text-align: center;"><i>Discover Places Near You</i></h1>
+  <h4 style="text-align: center;"><i>This is the best guide of your city</i></h4>
+
+  <div class="section">
+    <a href="#" onclick="findNearby('hotels')">
+      <img src="hotel.jpeg" alt="Hotels">
+      <h3><i>Hotels</i></h3>
+    </a>
+
+    <a href="#" onclick="findNearby('restaurants')">
+      <img src="restra.jpeg" alt="Restaurants">
+      <h3><i>Restaurants</i></h3>
+    </a>
+
+    <a href="#" onclick="findNearby('shopping')">
+      <img src="shopping.jpeg" alt="Shopping">
+      <h3><i>Shopping</i></h3>
+    </a>
+
+    <a href="#" onclick="findNearby('travels')">
+      <img src="travel.jpeg" alt="Travels">
+      <h3><i>Travels</i></h3>
+    </a>
+
+    <a href="#" onclick="findNearby('cinema')">
+      <img src="cinema.jpeg" alt="Cinema">
+      <h3><i>Cinema</i></h3>
+    </a>
+  </div>
+
+  <script>
+    function findNearby(type) {
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(
+          (position) => {
+            const lat = position.coords.latitude;
+            const lon = position.coords.longitude;
+            let url = "";
+
+            switch (type) {
+              case "hotels":
+                url = `https://www.google.com/maps/search/hotels/@${lat},${lon},15z`;
+                break;
+              case "restaurants":
+                url = `https://www.google.com/maps/search/restaurants/@${lat},${lon},15z`;
+                break;
+              case "shopping":
+                url = `https://www.google.com/maps/search/shopping+mall/@${lat},${lon},15z`;
+                break;
+              case "travels":
+                url = `https://www.google.com/maps/search/travel+agency/@${lat},${lon},15z`;
+                break;
+              case "cinema":
+                url = `https://in.bookmyshow.com/explore/movies-near-me?lat=${lat}&lng=${lon}`;
+                break;
+              default:
+                alert("Unknown category");
+                return;
+            }
+
+            window.open(url, "_blank");
+          },
+          (error) => {
+            alert("Error getting location: " + error.message);
+          }
+        );
+      } else {
+        alert("Geolocation is not supported by your browser.");
+      }
+    }
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,84 @@
+/* Base Reset & Body */
+* { margin:0; padding:0; box-sizing:border-box; }
+body {
+  font-family: 'Segoe UI', Tahoma, sans-serif;
+  font-size: 16px; color: #333;
+  background: #f0f4f8; min-height:100vh;
+}
+
+/* Hero / Title */
+h1 { font-size: 2.5rem; text-align:center; margin: 20px 0; }
+h1 + h4 { font-size: 1.2rem; text-align:center; margin-bottom:30px; }
+
+/* Top/Sticky Nav */
+.top-links {
+  text-align:right; padding:10px 20px;
+  background: rgba(255,255,255,0.9); position: sticky; top:0;
+  z-index:10;
+}
+.top-links a {
+  color:#333; font-weight:600; margin-left:15px;
+  transition:color .3s;
+}
+.top-links a:hover { color:#007BFF; }
+
+/* Main Nav Buttons */
+.nav-links {
+  text-align:center; margin:20px 0;
+}
+.nav-links a {
+  display:inline-block;
+  background:#007BFF; color:#fff;
+  padding:12px 24px; margin:0 10px;
+  border-radius:50px; font-weight:600;
+  transition: background .3s, transform .3s;
+}
+.nav-links a:hover {
+  background:#0056b3; transform:scale(1.05);
+}
+
+/* Services Section */
+.section {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap:30px; padding:0 20px 40px;
+}
+.section a {
+  display:block; text-decoration:none;
+  color:#444; text-align:center;
+  background:#fff; border-radius:10px;
+  overflow:hidden; box-shadow:0 4px 12px rgba(0,0,0,0.1);
+  transition: transform .3s, box-shadow .3s;
+}
+.section img {
+  width:100%; height: auto;
+  display:block; object-fit:cover;
+}
+.section h3 {
+  margin:15px 0; font-size:1.1rem;
+}
+.section a:hover {
+  transform:translateY(-5px);
+  box-shadow:0 8px 24px rgba(0,0,0,0.15);
+}
+
+/* Buttons */
+button, input[type="submit"], input[type="button"] {
+  background:#28a745; color:#fff;
+  padding:12px 25px; font-size:1rem;
+  border:none; border-radius:8px;
+  cursor:pointer; transition: background .3s, transform .2s;
+}
+button:hover, input[type="submit"]:hover, input[type="button"]:hover {
+  background:#218838; transform: translateY(-2px);
+}
+a{
+    text-decoration: none;
+}
+
+/* Responsive Hero Padding */
+@media(max-width:600px) {
+  body { padding:10px; }
+  h1 { font-size:2rem; }
+  .top-links a, .nav-links a { margin:8px; padding:10px; }
+}
